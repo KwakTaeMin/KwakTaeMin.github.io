@@ -16,8 +16,8 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "niKe-개발-블로그"
-title_separator          : "-"
+title                    : "niKe dev"
+title_separator          : ""
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "niKe"
 description              : ""
@@ -102,10 +102,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "곽태민"
+  name             : "niKe"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "서울"
+  bio              : ""
+  location         : "Korea"
   email            :
   links:
     - label: "Email"
