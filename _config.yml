@@ -20,7 +20,7 @@ title                    : "niKe dev"
 title_separator          : ""
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "niKe"
-description              : ""
+description              : "Victorie de Samothrace"
 url                      : "https://KwakTaeMin.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -103,8 +103,8 @@ analytics:
 # Site Author
 author:
   name             : "niKe"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : ""
+  avatar           : "/assets/images/profile_nike.jpeg"
+  bio              : "Victorie de Samothrace"
   location         : "Korea"
   email            : "taminging@kakao.com"
   links:
