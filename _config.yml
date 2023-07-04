@@ -104,13 +104,9 @@ analytics:
 author:
   name             : "niKe"
   avatar           : "/assets/images/profile_nike.jpeg"
-  bio              : "Victorie de Samothrace"
-  location         : "Korea"
-  email            : "taminging@kakao.com"
+  bio              : "Victorie de Samothrace taminging@kakao.com"
+  location         : "Korea, Seoul"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "taminging@kakao.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://kwaktaemin.github.io"
