@@ -1,7 +1,8 @@
 ---
 
 author_profile: true
-
+layout: archive
+permalink: /about
 ---
 
 # 곽 태민 | TaeMin Kwak
