@@ -3,16 +3,6 @@ main:
   - title: "About niKe"
     url: https://kwaktaemin.github.io/about/
 
-docs:
-  - title: Development
-    children:
-      - title: "intellij"
-        url: intellij/
-        category: "intellij"
-      - title: "java"
-        url: java/
-        category: "java"
-      - title: "jekyll"
-        url: jekyll/
-        category: "jekyll"
-
+sidebar:
+  - title: "develop"
+    url: "/develop"
