@@ -1,3 +1,14 @@
+---
+defaults:
+# _pages
+- scope:
+  path: ""
+  type: pages
+  values:
+  layout: single
+  author_profile: true
+---
+
 # 곽 태민 | TaeMin Kwak
 
 ### 🧒Personal Proflie
