@@ -2,9 +2,17 @@
 main:
   - title: "About niKe"
     url: https://kwaktaemin.github.io/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+
+docs:
+  - title: Development
+    children:
+      - title: "intellij"
+        url: intellij/
+        category: "intellij"
+      - title: "java"
+        url: java/
+        category: "java"
+      - title: "jekyll"
+        url: jekyll/
+        category: "jekyll"
+
