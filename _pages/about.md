@@ -1,8 +1,7 @@
 ---
-permalink: jekyll
+
 author_profile: true
-sidebar:
-  nav: "main"
+
 ---
 
 # 곽 태민 | TaeMin Kwak
