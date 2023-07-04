@@ -110,7 +110,7 @@ author:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      # url: "taminging@kakao.com"
+      url: "taminging@kakao.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://kwaktaemin.github.io"
