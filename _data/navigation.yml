@@ -2,6 +2,13 @@
 main:
   - title: "개발 일기"
     url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+    children:
+      - title: "Child Link 1"
+        url: /child-1-page-url/
+      - title: "Child Link 2"
+        url: /child-2-page-url/
+      - title: "Child Link 3"
+        url: /child-3-page-url/
   - title: "niKe"
     url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
