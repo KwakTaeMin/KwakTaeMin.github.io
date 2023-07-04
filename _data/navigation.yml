@@ -10,7 +10,7 @@ main:
       - title: "Child Link 3"
         url: /child-3-page-url/
   - title: "niKe"
-    url: https://mmistakes.github.io/minimal-mistakes/about/
+    url: about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
