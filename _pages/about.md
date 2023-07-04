@@ -1,12 +1,8 @@
 ---
-defaults:
-# _pages
-- scope:
-  path: ""
-  type: pages
-  values:
-  layout: single
-  author_profile: true
+permalink: jekyll
+author_profile: true
+sidebar:
+  nav: "main"
 ---
 
 # 곽 태민 | TaeMin Kwak
