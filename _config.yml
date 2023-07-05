@@ -273,14 +273,6 @@ compress_html:
   ignore:
     envs: development
 
-collections:
-  docs:
-    output: true
-    permalink: /:collection/:path/
-  pages:
-    output: true
-    permalink: /:collection/:path/
-
 # Defaults
 defaults:
   # _posts
@@ -295,13 +287,4 @@ defaults:
       comments: true
       share: true
       related: true
-  - scope:
-      path: ""
-      type: docs
-    values:
-      sidebar:
-        nav: "docs"
-  - scope:
-      path: "_pages"
-      type: pages
 
