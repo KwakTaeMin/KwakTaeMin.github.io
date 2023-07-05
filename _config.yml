@@ -294,3 +294,7 @@ defaults:
     values:
       sidebar:
         nav: "docs"
+  - scope:
+      path: ""
+      type: pages
+
