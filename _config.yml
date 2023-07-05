@@ -258,12 +258,15 @@ jekyll-archives:
    enabled:
      - categories
      - tags
+     - about
    layouts:
      category: archive-taxonomy
      tag: archive-taxonomy
+     about: about
    permalinks:
      category: /categories/:name/
      tag: /tags/:name/
+     about: /about/
 
 
 # HTML Compression
