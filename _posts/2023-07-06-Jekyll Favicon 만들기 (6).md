@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "Jekyll wide view (5)"
+title : "Jekyll Favicon 만들기 (6)"
 categories:
   - jekyll
 tags:
