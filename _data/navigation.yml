@@ -2,10 +2,3 @@
 main:
   - title: "About niKe"
     url: about/
-
-docs:
-  - title: ETC
-    children:
-      - title: "Jekyll"
-        url: jekyll/
-        category: "jekyll"
