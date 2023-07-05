@@ -1,6 +1,15 @@
 ---
 layout : single
 title : "IntelliJ build.gradle No candidates found for method call."
+categories:
+  - intellij
+tags:
+  - intellij
+  - flyway
+toc: true
+toc_label: "목록"
+toc_icon: "bars"
+toc_sticky: true
 ---
 
 ### 목적 
