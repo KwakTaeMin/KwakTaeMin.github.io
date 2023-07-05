@@ -8,13 +8,11 @@ tags:
   - blog
   - favicon
   - 파비콘
-  - jpeg to ico
-
 toc: true
 toc_label: "목록"
 toc_icon: "bars"
 toc_sticky: true
-date: 2023-07-06
+
 ---
 ### Favicon 만들기
 ![img.png](assets/images/2307/08-1.png) <br>
