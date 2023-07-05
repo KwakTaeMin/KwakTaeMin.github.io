@@ -3,6 +3,9 @@ main:
   - title: "About niKe"
     url: https://kwaktaemin.github.io/about/
 
-sidebar-category:
-  - title: "develop"
-    url: "/develop"
+docs:
+  - title: ETC
+    children:
+      - title: "Jekyll"
+        url: jekyll/
+        category: "jekyll"
