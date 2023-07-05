@@ -12,8 +12,9 @@ toc: true
 toc_label: "목록"
 toc_icon: "bars"
 toc_sticky: true
-
+date: 2023-07-05T5:00:00Z
 ---
+
 ### Favicon 만들기
 ![img.png](assets/images/2307/08-1.png) <br>
 왼쪽 상단에 크롬 탭에 보면 작은 이미지가 있는데 그것을 보고 파비콘(Favicon)이라고 한다.<br>
