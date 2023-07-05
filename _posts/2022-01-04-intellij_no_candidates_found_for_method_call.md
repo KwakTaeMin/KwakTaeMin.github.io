@@ -10,7 +10,7 @@ IntelliJ build.gradle No candidates found for method call.
 ~~~
 
 ### 해결 방법
-![screenshot](../assets/images/0104/0104image.png)
+![screenshot](../assets/images/2301/0104image.png)
 - Command + Shift + A 를 누릅니다.
 - reload를 검색한 후 Reload All Gradle Projects 를 클릭한다.
 - 위와 같은 행위를 하면 Gradle Dependency 있는 프로젝트들을 다시 다운로드하여 빌드한다. 
