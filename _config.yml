@@ -288,8 +288,6 @@ defaults:
       comments: true
       share: true
       related: true
-      sidebar:
-        nav: "sidebar-category"
   - scope:
       path: ""
       type: pages

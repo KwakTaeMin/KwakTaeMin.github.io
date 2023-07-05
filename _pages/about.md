@@ -1,7 +1,6 @@
 ---
-
+layout: page
 author_profile: true
-layout: archive
 permalink: /about
 ---
 
