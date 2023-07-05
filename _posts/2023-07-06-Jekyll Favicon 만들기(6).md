@@ -14,7 +14,7 @@ toc: true
 toc_label: "목록"
 toc_icon: "bars"
 toc_sticky: true
-date: 2023-07-06T0:00:00Z
+date: 2023-07-06
 ---
 ### Favicon 만들기
 ![img.png](assets/images/2307/08-1.png) <br>
@@ -49,4 +49,6 @@ Download the generated favicon 링크를 클릭하여 다운을 받고 밑에있
 <meta name="theme-color" content="#ffffff">
 ```
 
+완성되었다 한층 더 이뻐진 것 같아서 블로그에 더 애정이 갑니다. 파비콘 만들기 끝입니다~ <br>
+![img.png](assets/images/2307/08-3.png)
 
