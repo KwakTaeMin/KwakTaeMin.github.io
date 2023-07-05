@@ -290,7 +290,7 @@ defaults:
       related: true
   - scope:
       path: ""
-      type: pages
+      type: docs
     values:
-      layout: single
-      author_profile: true
+      sidebar:
+        nav: "docs"
