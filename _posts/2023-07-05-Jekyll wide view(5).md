@@ -7,6 +7,8 @@ tags:
   - jekyll
   - blog
   - wideview
+  - 넓게보기 
+  - 사이즈늘리기
 toc: true
 toc_label: "목록"
 toc_icon: "bars"
