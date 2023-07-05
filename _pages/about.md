@@ -1,6 +1,8 @@
 ---
-layout: pages
+
 author_profile: true
+layout: pages
+permalink: /about
 ---
 
 # 곽 태민 | TaeMin Kwak

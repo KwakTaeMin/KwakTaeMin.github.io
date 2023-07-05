@@ -295,6 +295,6 @@ defaults:
       sidebar:
         nav: "docs"
   - scope:
-      path: ""
+      path: "_pages"
       type: pages
 
