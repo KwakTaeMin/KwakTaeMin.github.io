@@ -7,5 +7,5 @@ docs:
   - title: ETC
     children:
       - title: "Jekyll"
-        url: categories/jekyll/
+        url: jekyll/
         category: "jekyll"
