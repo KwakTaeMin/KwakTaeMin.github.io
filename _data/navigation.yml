@@ -1,7 +1,7 @@
 # main links
 main:
   - title: "About niKe"
-    url: https://kwaktaemin.github.io/about/
+    url: about/
 
 docs:
   - title: ETC
