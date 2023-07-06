@@ -257,20 +257,6 @@
             </ul>
           </li>
         </ul>
-        <ul class="nav__items" id="tag_menu">
-          <li>
-            <span class="nav__sub-title">📂 Tags ({{site.posts | size}})</span>
-            <ul>
-              {% for tag in site.tags %}
-              {% if tags %}
-              <li>
-                <a href="/tags/#{{tag[0] | slugify}}" class="">{{tag[0]}} ({{tag[1].size}})</a>
-              </li>
-              {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
       </nav>
     </ul>
   </div>
