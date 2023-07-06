@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://kwaktaemin.github.io/sitemap.xml
