@@ -38,13 +38,13 @@ Apache Kafka는 별도의 시작이나 끝이 없는 스트리밍 이벤트 데�
 위의 해당 명령어를 `terminal`에 입력하여 source를 받고 해당 [주소](https://github.com/wurstmeister/kafka-docker)로 접속하여 README.md를 읽어보면 상세하게 설명되어있습니다.   
 READMD.md에서 읽어보면 사전 준비가 필요합니다.
 
-#### 사전준비 
-- [docker-compose 설치](https://docs.docker.com/compose/install/)
-- 도커 호스트 IP와 일치하도록 `docker-compose.yml`에서 `KAFKA_ADVERTISED_HOST_NAME`을 수정합니다(참고: 여러 브로커를 실행하려는 경우 호스트 IP로 localhost 또는 127.0.0.1을 사용하지 마십시오.) 
-- Kafka 매개변수를 사용자 지정하려면 `docker-compose.yml`에 환경 변수로 추가하기만 하면 됩니다. `message.max.bytes` 매개변수를 늘리려면 환경을 `KAFKA_MESSAGE_MAX_BYTES: 2000000`으로 설정하십시오.
-- 자동 `Topic` 생성을 끄려면 `KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'`를 설정합니다
-- Kafka의 log4j 사용은 `LOG4J_`로 시작하는 환경 변수를 추가하여 사용자 정의할 수 있습니다. 이는 `log4j.properties`에 매핑됩니다.
-  - 예시) `LOG4J_LOGGER_KAFKA_AUTHORIZER_LOGGER=DEBUG, authorizerAppender`
+> #### 사전준비 
+>- [docker-compose 설치](https://docs.docker.com/compose/install/)
+>- 도커 호스트 IP와 일치하도록 `docker-compose.yml`에서 `KAFKA_ADVERTISED_HOST_NAME`을 수정합니다(참고: 여러 브로커를 실행하려는 경우 호스트 IP로 localhost 또는 127.0.0.1을 사용하지 마십시오.) 
+>- Kafka 매개변수를 사용자 지정하려면 `docker-compose.yml`에 환경 변수로 추가하기만 하면 됩니다. `message.max.bytes` 매개변수를 늘리려면 환경을 `KAFKA_MESSAGE_MAX_BYTES: 2000000`으로 설정하십시오.
+>- 자동 `Topic` 생성을 끄려면 `KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'`를 설정합니다
+>- Kafka의 log4j 사용은 `LOG4J_`로 시작하는 환경 변수를 추가하여 사용자 정의할 수 있습니다. 이는 `log4j.properties`에 매핑됩니다.
+>  - 예시) `LOG4J_LOGGER_KAFKA_AUTHORIZER_LOGGER=DEBUG, authorizerAppender`
    
 위 내용은 해당 [github repository](https://github.com/wurstmeister/kafka-docker) README.md 파일 번역 한 것과 같아요 ㅎㅎ
 브로커를 여러개 사용한다는 개념은 카프카 서버를 여러 대 사용한다는 뜻과 같습니다. 그럴때에는 호스트 IP를 localhost로 설정하지 않는 것입니다.   
