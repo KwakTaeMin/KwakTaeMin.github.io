@@ -30,7 +30,9 @@ Apache Kafka는 별도의 시작이나 끝이 없는 스트리밍 이벤트 데�
 ***
 
 ### Kafka Docker 설치하기
-
+   
+도커로 설치하는 이유는 매우 간단하고 어느 환경에서든 바로 설치가 가능하기에 `docker`로 설치하는 것을 선호한다.   
+여유가 되시는 분은 직접 설치하고 사용하는 것도 좋지만 다른 환경에서도 바로바로 설치가 쉽기에 `docker-compose`를 이용할 예정입니다.
 
 
 
@@ -41,4 +43,5 @@ Apache Kafka는 별도의 시작이나 끝이 없는 스트리밍 이벤트 데�
 
 
 ### 참조 
-- 
+- https://tommypagy.tistory.com/226 
+- https://github.com/wurstmeister/kafka-docker 
