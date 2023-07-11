@@ -96,6 +96,7 @@ services:
     
 `broker`를 늘려서 실행하는 방법은 안되네요 확인해보고 다시 작성해야할 것 같아요   
 다음 포스팅에는 producer consumer broker 등 다양한 kafka에 대한 용어에 대해 정리해볼게요
+`broker`를 늘려서 실행하는 방법은 안되네요 확인해보고 다시 작성해야할 것 같아요   
 
 ### 참조 
 - [카프카 도커 설치 참조 블로그](https://tommypagy.tistory.com/226) 
