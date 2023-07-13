@@ -92,11 +92,7 @@ services:
 여러대의 `kafka broker`를 관리해준다고만 생각해줘도 좋을 것 같습니다. 필요할 때 더 설명해보겠습니다.   
 `docker-compose up -d` 명령어를 치게되면 `kafka` `zookeeper` 이미지를 다운받고 서버를 올려줍니다.   
 처음에만 이미지를 다운받으니 다음부터는 빠르게 실행되는 것을 볼 수 있습니다. 
-`docker-compose stop` 명령어를 통해 중단 시키고나서 다음 포스팅에 `kafka`에 대한 다른 기능들도 사용해보도록하겠습니다. 
-    
-`broker`를 늘려서 실행하는 방법은 안되네요 확인해보고 다시 작성해야할 것 같아요   
-다음 포스팅에는 producer consumer broker 등 다양한 kafka에 대한 용어에 대해 정리해볼게요
-`broker`를 늘려서 실행하는 방법은 안되네요 확인해보고 다시 작성해야할 것 같아요   
+`docker-compose stop` 명령어를 통해 중단 시키고나서 다음 포스팅에 `kafka`에 대한 다른 기능들도 사용해보도록하겠습니다.
 
 ### 참조 
 - [카프카 도커 설치 참조 블로그](https://tommypagy.tistory.com/226) 
