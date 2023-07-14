@@ -42,7 +42,18 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create -
 생성 후에 위의 리스트 명령어를 작성하게되면 `first_topic`이라고 shell에 표현 될 것 입니다.   
 
 카프카에 저장이 어떻게 되었는지 확인해보겠습니다.   
-![img.png](/assets/images/2307/13-1.png#center)   
+```shell
+taemin ~/Documents/kafka-study/kafka-docker/kafka-log/kafka-logs-32de4d328dc6> ll
+total 32
+-rw-r--r--  1 taemin  staff     0B  7 14 22:15 cleaner-offset-checkpoint
+drwxr-xr-x  6 taemin  staff   192B  7 14 22:17 first_topic-0
+drwxr-xr-x  6 taemin  staff   192B  7 14 22:17 first_topic-1
+drwxr-xr-x  6 taemin  staff   192B  7 14 22:17 first_topic-2
+-rw-r--r--  1 taemin  staff     4B  7 14 22:16 log-start-offset-checkpoint
+-rw-r--r--  1 taemin  staff    91B  7 14 22:15 meta.properties
+-rw-r--r--  1 taemin  staff     4B  7 14 22:16 recovery-point-offset-checkpoint
+-rw-r--r--  1 taemin  staff    52B  7 14 22:17 replication-offset-checkpoint
+```
 위의 그림에서 보다시피 `first_topic` 0,1,2라고 만들어졌어요 브로커(broker)는 1개이지만 파티션(partitions)이 3개라 하나의 브로커에 저장되있는 것을 볼 수 있습니다.   
 ```shell
 taemin ~/Documents/kafka-study/kafka-docker/kafka-log/kafka-logs-32de4d328dc6/first_topic-0> ll
