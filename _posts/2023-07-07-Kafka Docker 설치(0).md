@@ -90,6 +90,9 @@ services:
 위의 보시면 `zookeeper` 와 `kafka` 두개가 보이는데 `kafka`를 설치하기 위해서는 `zookeeper`가 필수입니다.   
 분산처리를 도와주는 도구정도라고만 이해하고 넘어가는 것도 좋은 것 같아요   
 여러대의 `kafka broker`를 관리해준다고만 생각해줘도 좋을 것 같습니다. 필요할 때 더 설명해보겠습니다.   
+저는 `docker-compose-single-broker.yml` 파일로 사용해서 실습해볼 예정입니다.   
+위 파일을 `docker-compose.yml`로 변경하고 기존의 `docker-compose.yml` 파일을 `docker-compose-multi-broker.yml` 파일로 변경 후    
+`KAFKA_ADVERTISED_HOST_NAME: localhost` 로 변경하여 로컬에서 하나의 브로커만 사용해서 테스트 해보겠습니다.   
 `docker-compose up -d` 명령어를 치게되면 `kafka` `zookeeper` 이미지를 다운받고 서버를 올려줍니다.   
 처음에만 이미지를 다운받으니 다음부터는 빠르게 실행되는 것을 볼 수 있습니다. 
 `docker-compose stop` 명령어를 통해 중단 시키고나서 다음 포스팅에 `kafka`에 대한 다른 기능들도 사용해보도록하겠습니다.
