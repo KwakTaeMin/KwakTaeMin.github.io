@@ -25,6 +25,14 @@ date: 2023-07-13T1:00:00Z
 토픽(Topic)은 RDBMS에서 테이블(Table)과 저장 위치 저장할 대상이라고 생각합니다.   
 토픽(Topic)을 생성 시 Kafka Command Line Tool을 이용하여 생성할 예정입니다.      
 [kafka command line tool](https://kafka.apache.org/)은 공식 홈페이지에서 다운 받을 수 있습니다.   
+
+### 카프카 토픽 리스트 확인하기
+```shell
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+```
+가볍게 위 명령어를 치고 카프카에 CLI가 잘 먹히는지 확인하여 체크한다. [Kafka Docker로 구성하기(0)](https://kwaktaemin.github.io/kafka/Kafka-Docker-%EC%84%A4%EC%B9%98(0)/)을 통해서 설치하였고, 잘 적용되었는지 확인하면 좋을 것 같다.
+
+### 카프카 토픽(Topic) 생성하기
 ```shell
 kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
 ```
@@ -33,6 +41,12 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create -
 `--replication-factor`는 복제 조건을 뜻합니다. 0은 복제하지않는 정책 1은 하나의 다른 브로커에 복제한다는 의미이고 2는 전체 브로커에 대해 같게 복제하여 안정성을 높인다는 의미입니다.   
 
 더 쓸건데 잠시만요~
+`cleanup.policy` 
+`retention.ms (default = 604800000 ms) 7일`
+`retention.bytes (default = -1)`
+`segments`
+
 
 ### 참조
 - [Kafka Topics CLI Tutorial](https://www.conduktor.io/kafka/kafka-topics-cli-tutorial/)  
+- [토픽 생성 시 고려사항](https://n1tjrgns.tistory.com/296)
