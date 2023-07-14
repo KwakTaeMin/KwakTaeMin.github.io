@@ -81,14 +81,17 @@ services:
       - "9092"
     environment:
       DOCKER_API_VERSION: 1.22
-      KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
+      KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./kafka-log:/kafka
     restart: unless-stopped
 ```
 위의 보시면 `zookeeper` 와 `kafka` 두개가 보이는데 `kafka`를 설치하기 위해서는 `zookeeper`가 필수입니다.   
 분산처리를 도와주는 도구정도라고만 이해하고 넘어가는 것도 좋은 것 같아요   
+`./kafka-log:/kafka` 로 볼륨을 연결하여 docker를 내려도 토픽이 유지되도록 로컬에 마운트 시켜놓겠습니다.   
+해당 설정을 하지 않으면 도커를 내린 후에 토픽이 사라질 수 있으니 유의해주세요.   
 여러대의 `kafka broker`를 관리해준다고만 생각해줘도 좋을 것 같습니다. 필요할 때 더 설명해보겠습니다.   
 저는 `docker-compose-single-broker.yml` 파일로 사용해서 실습해볼 예정입니다.   
 위 파일을 `docker-compose.yml`로 변경하고 기존의 `docker-compose.yml` 파일을 `docker-compose-multi-broker.yml` 파일로 변경 후    

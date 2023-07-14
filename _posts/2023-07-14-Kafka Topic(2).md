@@ -39,6 +39,22 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create -
 가볍게 위 명령어를 분석해보자면 `--bootstrap-server`는 카프카 브로커 서버를 지정해주면 된다. `--topic` 다음에는 토픽 이름 `--create` 생성한다는 의미이다.   
 `--partitions` 브로커에 파티션을 3개 지정한다는 것이다 분산 처리를하기위해 하나의 토픽에 저장 시 3개의 파티션으로 나누어 작업을 처리할 수 있는 것과 같다. 
 `--replication-factor`는 복제 조건을 뜻합니다. 0은 복제하지않는 정책 1은 하나의 다른 브로커에 복제한다는 의미이고 2는 전체 브로커에 대해 같게 복제하여 안정성을 높인다는 의미입니다.   
+생성 후에 위의 리스트 명령어를 작성하게되면 `first_topic`이라고 shell에 표현 될 것 입니다.   
+
+카프카에 저장이 어떻게 되었는지 확인해보겠습니다.   
+![img.png](/assets/images/2307/13-1.png#center)   
+위의 그림에서 보다시피 `first_topic` 0,1,2라고 만들어졌어요 브로커(broker)는 1개이지만 파티션(partitions)이 3개라 하나의 브로커에 저장되있는 것을 볼 수 있습니다.   
+```shell
+taemin ~/Documents/kafka-study/kafka-docker/kafka-log/kafka-logs-32de4d328dc6/first_topic-0> ll
+total 8
+-rw-r--r--  1 taemin  staff    10M  7 14 22:17 00000000000000000000.index
+-rw-r--r--  1 taemin  staff     0B  7 14 22:17 00000000000000000000.log
+-rw-r--r--  1 taemin  staff    10M  7 14 22:17 00000000000000000000.timeindex
+-rw-r--r--  1 taemin  staff     8B  7 14 22:17 leader-epoch-checkpoint
+```
+`first_topic-0` 폴더를 들어가게 되면 다음과 같은 파일 구성이 되어있습니다.    
+로그(log)파일에는 세그먼트를 구성하는 실제 데이터가 들어있는 파일입니다. (00000000000000000000.log)
+인덱스(index)파일에는 논리적인 인덱스와 파일의 물리적인 인덱스를 매핑해주는 파일입니다. (00000000000000000000.index)
 
 더 쓸건데 잠시만요~
 `cleanup.policy` 
@@ -50,3 +66,4 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create -
 ### 참조
 - [Kafka Topics CLI Tutorial](https://www.conduktor.io/kafka/kafka-topics-cli-tutorial/)  
 - [토픽 생성 시 고려사항](https://n1tjrgns.tistory.com/296)
+- [Kafka의 Topic, Partition, Segment, Message](https://leeyh0216.github.io/posts/kafka_concept/)
