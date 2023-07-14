@@ -54,7 +54,10 @@ drwxr-xr-x  6 taemin  staff   192B  7 14 22:17 first_topic-2
 -rw-r--r--  1 taemin  staff     4B  7 14 22:16 recovery-point-offset-checkpoint
 -rw-r--r--  1 taemin  staff    52B  7 14 22:17 replication-offset-checkpoint
 ```
-위의 그림에서 보다시피 `first_topic` 0,1,2라고 만들어졌어요 브로커(broker)는 1개이지만 파티션(partitions)이 3개라 하나의 브로커에 저장되있는 것을 볼 수 있습니다.   
+위의 그림에서 보다시피 `first_topic` 0,1,2라고 만들어졌어요 브로커(broker)는 1개이지만 파티션(partitions)이 3개라 하나의 브로커에 저장되있는 것을 볼 수 있습니다.
+
+### 카프카 로그 파일 분석해보기 
+
 ```shell
 taemin ~/Documents/kafka-study/kafka-docker/kafka-log/kafka-logs-32de4d328dc6/first_topic-0> ll
 total 8
@@ -64,8 +67,11 @@ total 8
 -rw-r--r--  1 taemin  staff     8B  7 14 22:17 leader-epoch-checkpoint
 ```
 `first_topic-0` 폴더를 들어가게 되면 다음과 같은 파일 구성이 되어있습니다.    
-로그(log)파일에는 세그먼트를 구성하는 실제 데이터가 들어있는 파일입니다. (00000000000000000000.log)
-인덱스(index)파일에는 논리적인 인덱스와 파일의 물리적인 인덱스를 매핑해주는 파일입니다. (00000000000000000000.index)
+로그(log)파일에는 세그먼트를 구성하는 실제 데이터가 들어있는 파일입니다. (00000000000000000000.log)   
+인덱스(index)파일에는 논리적인 인덱스와 파일의 물리적인 인덱스를 매핑해주는 파일입니다. (00000000000000000000.index)   
+파일명에서 등장하는 00000000000000000000는 해당 Segment의 Base Offset입니다.   
+
+
 
 더 쓸건데 잠시만요~
 `cleanup.policy` 
