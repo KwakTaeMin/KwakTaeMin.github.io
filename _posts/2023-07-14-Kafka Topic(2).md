@@ -77,7 +77,8 @@ total 8
 `cleanup.policy` 
 `retention.ms (default = 604800000 ms) 7일`
 `retention.bytes (default = -1)`
-`segments`
+`segments`   
+
 
 
 ### 참조
