@@ -26,18 +26,12 @@ date: 2023-07-17T1:00:00Z
 
 <div class="mermaid"> 
 graph LR;
-  A(Record 전송)-->|Byte 배열로 변환|B(Serializer);
-  B-->C(Partitioner);
-  C-->D(Buffer);
-  D-->F(Sender);
-  F-->G[Kafka Broker];
-</div>
- 
-
-Serializer : byte 배열로 변환    
-Partitioner : 어디 파티션으로 보낼지 결정    
-Buffer : Batch로 묶어서 메시지를 저장    
-Sender : 배치를 차례대로 Broker로 전송    
+  A(Record)-->|send()|B(Serializer);
+  B-->|Byte 배열로 변환|C(Partitioner);
+  C-->|어디 파티션으로 보낼지 결정|D(Buffer);
+  D-->|Batch로 묶어서 메시지를 저장|F(Sender);
+  F-->|배치를 차례대로 Broker로 전송|G[Kafka Broker];
+</div> 
 
 ### Sender 작동 방식 
 Sender는 별도 쓰레드(Thread)로 Sender 동작합니다. Sender가 메시지를 보내는 동안 배치로 누적해서 쌓이게 됩니다.   
