@@ -13,7 +13,7 @@ toc_label: "목록"
 toc_icon: "bars"
 toc_sticky: true
 date: 2023-07-17T1:00:00Z
-mermaid: true
+use_mermaid: true
 ---
 
 ### Kafka 프로듀서(Producer)
