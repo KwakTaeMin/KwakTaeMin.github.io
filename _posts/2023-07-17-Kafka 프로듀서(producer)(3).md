@@ -26,7 +26,7 @@ date: 2023-07-17T1:00:00Z
 
 <div class="mermaid"> 
 graph LR;
-  A(Record 전송)-->B(Serializer);
+  A(Record 전송)-->|Byte 배열로 변환|B(Serializer);
   B-->C(Partitioner);
   C-->D(Buffer);
   D-->F(Sender);
