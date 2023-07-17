@@ -26,7 +26,7 @@ date: 2023-07-17T1:00:00Z
 
 <div class="mermaid"> 
 graph LR;
-  A(Record)-->|send()|B(Serializer);
+  A(Record)-->|레코드 전송|B(Serializer);
   B-->|Byte 배열로 변환|C(Partitioner);
   C-->|어디 파티션으로 보낼지 결정|D(Buffer);
   D-->|Batch로 묶어서 메시지를 저장|F(Sender);
