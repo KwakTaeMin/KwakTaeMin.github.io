@@ -25,7 +25,7 @@ date: 2023-07-17T1:00:00Z
 > - ProducerRecord 는 Topic, Value 만 보내거나 Topic,Key,Value 입력하여 전송
 
 <div class="mermaid"> 
-graph LR;
+flowchart TB;
   A(Record)-->|레코드 전송|B(Serializer);
   B-->|Byte 배열로 변환|C(Partitioner);
   C-->|어디 파티션으로 보낼지 결정|D(Buffer);
