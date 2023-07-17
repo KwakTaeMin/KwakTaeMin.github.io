@@ -76,10 +76,10 @@ send() 메소드나 callback 메서드에서 exception이 나면 타입에 따�
 
 <div class="mermaid"> 
 sequenceDiagram
-  Producer->>Broker: Record 전송
-  Broker-->Producer: 저장은 되었지만 Producer가 저장 성공했다는 확인 절차에서 Timeout 발생
-  Producer->>Broker: Record 재전송
-  Broker-->Producer: 저장 성공 확인 (중복 저장 발생)
+  Producer->>+Broker: Record 전송
+  Broker--x-Producer: 저장은 되었지만 Producer가 저장 성공했다는 확인 절차에서 Timeout 발생
+  Producer->>+Broker: Record 재전송
+  Broker-->>-Producer: 저장 성공 확인 (중복 저장 발생)
 </div> 
 
 
