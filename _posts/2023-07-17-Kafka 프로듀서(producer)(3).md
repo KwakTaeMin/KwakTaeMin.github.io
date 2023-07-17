@@ -25,10 +25,10 @@ date: 2023-07-17T1:00:00Z
 > - ProducerRecord 는 Topic, Value 만 보내거나 Topic,Key,Value 입력하여 전송
 
 
-```mermaid!
+```mermaid
 graph LR;
-  A(Record 전송) --> B(Serializer); 
-  B--> C(Partitioner); 
+  A(Record 전송) --> B(Serializer);
+  B--> C(Partitioner);
   C--> D(Buffer);
   D--> F(Sender);
   F--> G[Kafka Broker];
