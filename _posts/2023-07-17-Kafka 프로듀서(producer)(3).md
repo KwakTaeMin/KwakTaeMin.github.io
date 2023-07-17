@@ -73,11 +73,12 @@ ack가 all이지만 broker의 `min.insync.replicas` 설정에 숫자만큼이 �
 send() 메소드나 callback 메서드에서 exception이 나면 타입에 따라 send()를 재호출 해볼 수 있을 것 같습니다.   
 재시도를 하는 경우에는 레코드가 전송시 브로커 응답이 늦게 와서 프로듀서가 실패로 인식 후 재시도를 하는 경우 중복 발송 가능 성이 있습니다.    
 
-```sequence
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
+
+<div class="mermaid"> 
+sequenceDiagram
+  Producer->Broker: Record전송 
+  Broker->Producer: ack
+</div> 
 
 ![img.png](/assets/images/2307/13-1.png#center)   
    
