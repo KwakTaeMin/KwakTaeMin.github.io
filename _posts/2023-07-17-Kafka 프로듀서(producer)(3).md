@@ -76,12 +76,12 @@ send() 메소드나 callback 메서드에서 exception이 나면 타입에 따�
 
 <div class="mermaid"> 
 sequenceDiagram
-  Producer->Broker: Record전송 
-  Broker->Producer: ack
+  Producer->>Broker: Record 전송
+  Broker-->Producer: 저장은 되었지만 Producer가 저장 성공했다는 확인 절차에서 Timeout 발생
+  Producer->>Broker: Record 재전송
+  Broker-->Producer: 저장 성공 확인 (중복 저장 발생)
 </div> 
 
-![img.png](/assets/images/2307/13-1.png#center)   
-   
 
 참고로 `enable.idempotence` 속성을 고려해보면 중복 가능성이 떨어진다고 합니다. 필요한 경우 해당 속성을 참고하시면 좋을 것 같습니다.
 아주 특별한 이유가 없다면 무한 재시도는 하지 않는게 좋을 것 같습니다.
