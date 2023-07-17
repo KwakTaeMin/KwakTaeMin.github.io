@@ -78,7 +78,7 @@ send() 메소드나 callback 메서드에서 exception이 나면 타입에 따�
 sequenceDiagram
   Producer->>+Broker: Record 전송
   Broker--x-Producer: Timeout Exception 발생
-  Note right of Broker: 저장 
+  Note over Producer,Broker: 저장은 되었지만 Producer 저장 확인 실패
   Producer->>+Broker: Record 재전송
   Broker-->>-Producer: 저장 성공 확인 (중복 저장 발생)
 </div> 
