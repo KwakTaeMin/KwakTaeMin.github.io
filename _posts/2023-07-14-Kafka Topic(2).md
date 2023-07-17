@@ -56,6 +56,46 @@ drwxr-xr-x  6 taemin  staff   192B  7 14 22:17 first_topic-2
 ```
 위의 그림에서 보다시피 `first_topic` 0,1,2라고 만들어졌어요 브로커(broker)는 1개이지만 파티션(partitions)이 3개라 하나의 브로커에 저장되있는 것을 볼 수 있습니다.
 
+### 카프카 토픽 상세 정보 확인하기
+```shell
+kafka-topics.sh \
+--bootstrap-server localhost:9092 \
+--topic first_topic \
+--describe
+```
+
+위와 같이 `first_topic`에 대해 자세한 정보가 필요한 경우 명령어를 통하여 알 수 있다. 
+```shell
+Topic: first_topic	TopicId: xmCU6y6hSsOVeEBlvRkE_g	PartitionCount: 3	ReplicationFactor: 1	Configs: segment.bytes=1073741824
+	Topic: first_topic	Partition: 0	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: first_topic	Partition: 1	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: first_topic	Partition: 2	Leader: 1001	Replicas: 1001	Isr: 1001
+```
+
+토픽을 수정하거나 삭제하는 법도 따로 존재합니다.
+
+### 카프카 토픽 수정하기 
+```shell
+kafka-topics.sh \
+--bootstrap-server localhost:9092 \
+--topic first_topic \
+--alter \
+--partitions 3
+```
+파티션 개수 변경하는 방법입니다. `--alter`이용하여 파티션 개수를 변경하였습니다. 자세한 내용은 `--decribe` 명령어를 통해 변경되었음을 알 수 있습니다.
+
+```shell
+kafka-configs.sh \
+--bootstrap-server localhost:9092 \
+--entity-type topics \
+--entity-name first_topic \
+--alter \
+--add-config retention.ms=86400000
+```
+토픽에 `retention.ms` 옵션을 추가하는 설정입니다. 해당 설정은 토픽에 저장되는 시간을 입력한 것입니다.   
+프로듀서가 토픽에 레코드를 전달하고나서 저장하는 시간을 설정한 것입니다. `retention.ms` 설정 시간 후에는 데이터가 삭제되는 설정입니다.   
+
+
 ### 카프카 로그 파일 분석해보기 
 
 ```shell
@@ -71,15 +111,7 @@ total 8
 인덱스(index)파일에는 논리적인 인덱스와 파일의 물리적인 인덱스를 매핑해주는 파일입니다. (00000000000000000000.index)   
 파일명에서 등장하는 00000000000000000000는 해당 Segment의 Base Offset입니다.   
 
-
-
-더 쓸건데 잠시만요~
-`cleanup.policy` 
-`retention.ms (default = 604800000 ms) 7일`
-`retention.bytes (default = -1)`
-`segments`   
-
-
+해당 로그 파일 분석기는 추가적으로 알아가는 과정에서 내용을 추가하도록 하겠습니다.
 
 ### 참조
 - [Kafka Topics CLI Tutorial](https://www.conduktor.io/kafka/kafka-topics-cli-tutorial/)  
