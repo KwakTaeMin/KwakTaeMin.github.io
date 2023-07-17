@@ -26,12 +26,12 @@ date: 2023-07-17T1:00:00Z
 
 
 ```mermaid
-graph LR;
-  A(Record 전송) --> B(Serializer);
-  B --> C(Partitioner);
-  C --> D(Buffer);
-  D --> F(Sender);
-  F --> G[Kafka Broker];
+graph LR
+  A(Record 전송) --> B(Serializer)
+  B --> C(Partitioner)
+  C --> D(Buffer)
+  D --> F(Sender)
+  F --> G[Kafka Broker]
 ```
  
 
