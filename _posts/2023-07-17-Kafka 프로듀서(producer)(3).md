@@ -23,6 +23,8 @@ date: 2023-07-17T1:00:00Z
 > - Value 설정
 > - KafkaProducer 객체로 ProducerRecord 생성
 > - ProducerRecord 는 Topic, Value 만 보내거나 Topic,Key,Value 입력하여 전송
+
+
 ```mermaid
 graph LR
 A(Record 전송) --> B(Serializer) 
