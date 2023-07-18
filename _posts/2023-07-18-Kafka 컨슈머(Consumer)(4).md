@@ -12,7 +12,7 @@ toc: true
 toc_label: "목록"
 toc_icon: "bars"
 toc_sticky: true
-date: 2023-07-17T1:00:00Z
+date: 2023-07-18T1:00:00Z
 ---
 
 ### Kafka 컨슈머(Consumer)
