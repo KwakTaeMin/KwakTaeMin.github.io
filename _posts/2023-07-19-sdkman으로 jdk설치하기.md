@@ -36,12 +36,9 @@ $ sdk version
 ```
 sdk version을 치게 되고 다음과 같이 나오면 sdkman 설치는 끝입니다. 간단합니다. 
 ```shell
-
 SDKMAN!
 script: 5.18.2
 native: 0.3.2
-
-
 ```
 
 ### sdkman으로 jdk 설치하기
