@@ -148,9 +148,22 @@ Done installing!
 Setting java 17.0.7-tem as default.
 ```
 
-위와 같이 설치 후 java default는 17.0.7-tem version으로 설정되었습니다.   
+위와 같이 설치 후 java default는 17.0.7-tem version으로 설정되었습니다.
+
+```shell
+$ java -version
+openjdk version "17.0.7" 2023-04-18
+OpenJDK Runtime Environment Temurin-17.0.7+7 (build 17.0.7+7)
+OpenJDK 64-Bit Server VM Temurin-17.0.7+7 (build 17.0.7+7, mixed mode)
+```
+설치가 잘 되었는지 `java --version` 명령어로 확인하여보았습니다.   
+ 
 추후 만약 jdk 11 버전을 사용해야 한다면, 위와 같이 11버전을 설치하시고 java default 명령어로 변경해주시면 됩니다.      
 만약 `11.0.19-tem`을 설치했다면 위와 같이 default로 변경합니다.  
+
+```shell
+$ sdk install java 11.0.19-tem
+```
 
 ```shell
 $ sdk default java 11.0.19-tem  
