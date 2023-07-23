@@ -65,7 +65,7 @@ services:
     restart: unless-stopped
 ```
 
-저 같은 경우에는 [kafka Docker로 설치하기(0)]() 이용하여 SpringBoot 기능에 Docker Compose Support 기능을 추가해볼 예정입니다.   
+저 같은 경우에는 [kafka Docker로 구성하기(0)](https://kwaktaemin.github.io/kafka/Kafka-Docker-%EC%84%A4%EC%B9%98(0)/) 이용하여 SpringBoot 기능에 Docker Compose Support 기능을 추가해볼 예정입니다.   
 해당 파일을 `compose.yaml` 으로 지정만해두면 application이 시작될 때나 종료될 때 `docker compose up` , `docker compose stop`을 통해 컨테이너를 관리해주며 편리하게 개발할 수 있게 될 것 같습니다.   
 앞으로 3.대 Spring Boot를 사용하며 많이 사용할 것 같아서 좋을 것 같습니다.
 

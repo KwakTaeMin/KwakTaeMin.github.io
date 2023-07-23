@@ -25,4 +25,4 @@ Sub Protocol SockJS 위에서 돌아갑니다.
 
 
 ### 참조
-- [Spring Socket](https://www.youtube.com/watch?v=gQyRxPjssWg&ab_channel=%40%EC%8B%9C%EC%BD%94-%EC%8B%9C%EB%8B%88%EC%96%B4%EC%BD%94%EB%94%A9)
+- [Spring WebSocket](https://spring.io/guides/gs/messaging-stomp-websocket/)
