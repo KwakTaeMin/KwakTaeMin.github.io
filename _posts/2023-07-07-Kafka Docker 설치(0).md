@@ -78,7 +78,7 @@ services:
   kafka:
     build: .
     ports:
-      - "9092"
+      - "9092:9092"
     environment:
       DOCKER_API_VERSION: 1.22
       KAFKA_ADVERTISED_HOST_NAME: localhost

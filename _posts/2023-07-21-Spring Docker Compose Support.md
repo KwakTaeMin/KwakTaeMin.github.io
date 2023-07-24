@@ -49,12 +49,10 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
-    restart: unless-stopped
-
   kafka:
     build: .
     ports:
-      - "9092"
+      - "9092:9092"
     environment:
       DOCKER_API_VERSION: 1.22
       KAFKA_ADVERTISED_HOST_NAME: localhost
@@ -62,13 +60,15 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./kafka-log:/kafka
-    restart: unless-stopped
 ```
 
 저 같은 경우에는 [kafka Docker로 구성하기(0)](https://kwaktaemin.github.io/kafka/Kafka-Docker-%EC%84%A4%EC%B9%98(0)/) 이용하여 SpringBoot 기능에 Docker Compose Support 기능을 추가해볼 예정입니다.   
 해당 파일을 `compose.yaml` 으로 지정만해두면 application이 시작될 때나 종료될 때 `docker compose up` , `docker compose stop`을 통해 컨테이너를 관리해주며 편리하게 개발할 수 있게 될 것 같습니다.   
 앞으로 3.대 Spring Boot를 사용하며 많이 사용할 것 같아서 좋을 것 같습니다.
 
+![img.png](/assets/images/2307/13-2.png#center)
+
+[GitHub 소스](https://github.com/KwakTaeMin/chat-stomp) 해당 테스트 내용은 여기에서 보고 확인해보시면 도움이 될 것 같습니다. 
 
 ### 참조
 - [Spring Docker Compose](https://spring.io/blog/2023/06/21/docker-compose-support-in-spring-boot-3-1)

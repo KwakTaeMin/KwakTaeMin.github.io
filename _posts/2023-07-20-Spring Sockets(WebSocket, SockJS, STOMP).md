@@ -41,6 +41,16 @@ STOMP는 하위 수준 WebSocket 위에서 작동하는 하위 프로토콜입�
 
 ![img.png](/assets/images/2307/14-1.png#center)   
    
+위와 같이 프로젝트를 만들게 되면 해당 모듈을 implement 합니다. 
+
+```gradle
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+}
+```
+
+
+
 실제 예제 코드는 작성해보고 다시 포스팅 할게요
 
 
