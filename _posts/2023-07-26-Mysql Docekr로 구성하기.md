@@ -20,7 +20,7 @@ services:
   mysql:
     image: mysql:5.7.42
     platform: linux/amd64
-    container_name: mysql-vacation
+    container_name: mysql-container
     ports:
       - "3308:3306"
     env_file:
