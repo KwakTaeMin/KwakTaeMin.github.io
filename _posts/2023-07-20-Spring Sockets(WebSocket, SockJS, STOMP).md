@@ -49,11 +49,52 @@ dependencies {
 }
 ```
 
+```java
+@Configuration
+@EnableWebSocketMessageBroker
+public class StompConfig implements WebSocketMessageBrokerConfigurer {
 
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        // 메시지 구독 요청 URL
+        registry.enableSimpleBroker("/subscriber");
+        // 메시지 발행 요청 URL
+        registry.setApplicationDestinationPrefixes("/publisher");
+    }
 
-실제 예제 코드는 작성해보고 다시 포스팅 할게요
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/ws")
+                .setAllowedOrigins("*");
+    }
+}
+```
+
+위와 같이 `@EnableWebSocketMessageBroker` 설정 후   
+구독 Prefix URL 설정과 발행 Prefix 설정을 해줍니다.   
+WebSocket 또한 EndPoint를 설정하여 줍니다.   
+
+```java
+@Controller
+public class ChatController {
+    @MessageMapping("/chatroom") // 실제 매핑은 publisher/chatroom
+    @SendTo("/subscriber/chatroom")
+    public String hello(String message) {
+        return message;
+    }
+}
+```
+
+`@MessageMapping` 으로 주석에 써있는 것 처럼 메시지를 발행합니다.   
+그리고 `@SendTo`로 구독하고있는 `/subscriber/chatroom` 구독자들에게 return값을 전달하여 줍니다.   
+
+위 코드를 작성한 후 [apic](https://apic.app/)이라는 Tool을 이용하여 테스트 해볼 수 있습니다.  
+저 같은 경우 아래의 스크린 샷 처럼 설정하여 진행하였습니다.   
+
+![img.png](/assets/images/2307/14-2.png#center)
 
 
 ### 참조
 - [Spring messaging-stomp-websocket](https://spring.io/guides/gs/messaging-stomp-websocket/)
 - [STOMP wiki](https://en.wikipedia.org/wiki/Streaming_Text_Oriented_Messaging_Protocol)
+- [STOMP-테스트를-위한-apic-알아보기](https://velog.io/@soluinoon/STOMP-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-apic-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
