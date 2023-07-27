@@ -18,7 +18,7 @@ date: 2023-07-27T1:00:00Z
 
 ## Github 민감한 정보 SubModule로 관리하기 
 
-![img.png](assets/images/2307/17-1.png#center)
+![img.png](/assets/images/2307/17-1.png#center)
 
 개인적인 프로젝트를 개발하고 있는데 뜬금 없이 이런 메일이 와있었다. 무슨 내용인가 봤더니 Google OAuth2.0 Client Id, Client Secret을 
 github 공간에 너무 자연스럽게 보여주고있었다. 이와 마찬가지로 mysql db정보나 id password 도 노출될 수 있기에 이러한 정보를 관리 할 수 있는 방법이 필요했다. 
