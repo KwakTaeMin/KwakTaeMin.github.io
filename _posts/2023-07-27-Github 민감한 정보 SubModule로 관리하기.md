@@ -37,7 +37,15 @@ git submodule add https://github.com/KwakTaeMin/chat-config.git
 ```
 
 뒤에 폴더도 지정할 수 있으며 저 같은 경우에는 application.yml을 /chat-config 로 옮긴 후 resource 폴더에있는 application.yml은 .gitignore 에 추가하여
-private repository에서만 수정하여 옮겨주는 방식으로 수정하였습니다. 
+private repository에서만 수정하여 옮겨주는 방식으로 수정하였습니다.
+
+chat-config 폴더에 가서 민감한 파일 ex)application.yml을 넣은 후 다음과 같이 터미널에서 입력합니다. 
+
+```shell
+git add ./*
+git commit ./* -m "init config file"
+git push
+```
     
 이렇게 해도 git history 상 application.yml 파일을 확인하면 기록에 남아 내용이 무엇이였는지 확인이 가능하다   
 그렇기에 특정 파일에 대한 git 기록을 제거하는 방법은 
