@@ -28,9 +28,16 @@ github 공간에 너무 자연스럽게 보여주고있었다. 이와 마찬가�
 
 public github repository에 민감한 정보를 commit push 하지 않고 private repository에 민간한 정보를 두고 private repository를 submodule로 
 pull 하여 따로 관리하는 것이다. 그럼 민감한 정보는 보여지지 않고 private 하게 관리할 수 있으니 안전하게 관리 할수 있다.   
+github에서 아래와 같이 private repository를 만들어 줍니다. 
 
+![img.png](/assets/images/2307/18-1.png#center)
 
+```shell
+git submodule add https://github.com/KwakTaeMin/chat-config.git  
+```
 
+뒤에 폴더도 지정할 수 있으며 저 같은 경우에는 application.yml을 /chat-config 로 옮긴 후 resource 폴더에있는 application.yml은 .gitignore 에 추가하여
+private repository에서만 수정하여 옮겨주는 방식으로 수정하였습니다. 
 
 
 
