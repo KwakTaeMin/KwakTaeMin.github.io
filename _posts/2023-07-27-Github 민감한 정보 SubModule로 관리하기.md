@@ -74,6 +74,11 @@ Ref 'refs/remotes/origin/master' was rewritten
 
 ```
 
+![img.png](/assets/images/2307/18-2.png#center)
+
+intelliJ에서는 이렇게 표시됩니다. (`gittoolbox` plugins이 있어야 보이긴합니다.) submodule이 있어서 따로 git 관리를 할 수 있습니다.   
+submodule은 private하게 한후 중요한 정보 민감한 정보를 관리하고 메인 프로젝트엔 코드만 관리 할 수 있도록 할 수 있습니다.
+
 이렇게 public한 github 공간에서 민감한 정보를 관리하고 다루는 방법에 대해 알아보았습니다. 
 
 ### 참조
