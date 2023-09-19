@@ -48,7 +48,7 @@ Transaction을 이용하여 충돌을 예방하는 것이 비관적 락이다.
 다른 사람이 동일한 조건으로 값을 수정할 수 없게 하는 것 입니다.. 그런데 잘 보면 이 특징은 DB에서 제공해주는 
 특징을 이용하는 것이 아닌 Application Level에서 잡아주는 Lock 입니다.
 
-![img.png](../assets/images/2309/18-02.png)
+![img.png](/assets/images/2309/18-02.png)
 
 1. A가 Table의 ID 2번을 읽음 (name = Karol, version = 1)
 2. B가 Table의 ID 2번을 읽음 (name = Karol, version = 1)
