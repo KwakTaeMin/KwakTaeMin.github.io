@@ -221,5 +221,5 @@ LockModeTyhpe을 통해 락 옵션을 변경할 수 있다.
 
 ### 참조
 - [[database] 낙관적 락(Optimistic Lock)과 비관적 락(Pessimistic Lock)](https://sabarada.tistory.com/175)
-
+- [JPA의 낙관적 락과 비관적 락을 통해 엔티티에 대한 동시성 제어하기](https://hudi.blog/jpa-concurrency-control-optimistic-lock-and-pessimistic-lock/)
 
