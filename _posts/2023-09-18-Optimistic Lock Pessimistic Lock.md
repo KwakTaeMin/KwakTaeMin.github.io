@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "Optimistic Lock 낙관적 락 / Pessimistic Lock 비관적 락"
+title : "Optimistic Lock 낙관적 락 / Pessimistic Lock 비관적 락 with JPA"
 categories:
   - Database
 tags:
