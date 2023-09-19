@@ -192,7 +192,7 @@ update BOARD set title = '타이틀', version = version + 1;
 
 ### 낙관적 락의 LockModeType
 
-LockModeTyhpe을 통해 락 옵션을 변경할 수 있다.
+LockModeType을 통해 락 옵션을 변경할 수 있다.
 
 ### NONE
 별도로 락 옵션을 지정하지 않아도 엔티티에 `@Version`을 적용하면 기본으로 적용되는 락 옵션이다.
@@ -217,6 +217,24 @@ LockModeTyhpe을 통해 락 옵션을 변경할 수 있다.
 - 용도 : 논리적인 단위의 엔티티 묶음을 관리할 수 있다.
 - 동작 : 엔티티가 직접적으로 수정되어 있지 않아도, 트랜잭션을 커밋할 때 UPDATE 쿼리를 사용해 버전 정보를 강제로 증가시킨다. 이 때 엔티티의 버전을 체크하고 일치하지 않으면 예외가 발생한다. 이 때 추가로 엔티티의 정보도 실제로 변경되었다면, 2번의 버전 증가가 발생한다. 
 - 이점 : 강제로 버전을 변경하여 논리적인 단위의 엔티티 묶음을 버전 관리 할 수 있다.
+
+## JPA 에서의 비관적 락
+
+### 비관적 락의 LockModeType
+### PESSIMISTIC_WRITE
+비관적 락이라고 하면 일반적으로 해당 옵션을 의미한다.
+- 용도/ 동작 : 데이터 베이스에 `SELECT ... FOR UPDATE `을 사용하여 베타 락을 건다.
+- 이점 : NON-REPEATABLE READ를 방지한다.
+
+### PESSIMISTIC_READ
+데이터를 반복 읽기만 하고 수정하지 않을 때 사용한다. 일반적으로 잘 사용하지 않는다고 한다. 데이터베이스 대부분은 방언에 의해 PESSIMISTIC_WRITE로 동작한다.
+
+- 동작 : `SELECT ... FOR SHARE (LOCK IN SHARE MODE) `
+
+### PESSIMISTIC_FORCE_INCREMENT
+
+비관적 락 중 유일하게 버전 정보를 사용한다. 비관적 락이지만 버전 정보를 강제적으로 증가시킨다. 하이버네이트의 경우
+`nowait` 를 지원 하는 데이터 베이스에 대해 `FOR UPDATE NOWAIT` 옵션을 적용하고, 그렇지 않다면 `FOR UPDATE`를 사용한다.
 
 
 ### 참조
