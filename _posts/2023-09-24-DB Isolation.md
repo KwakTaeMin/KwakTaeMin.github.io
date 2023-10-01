@@ -140,7 +140,83 @@ REPEATABLE READ에서는 트랜잭션 번홀ㄹ 바탕으로 실제 테이블 �
 
 ### READ COMMITTED
 
-...
+READ COMMITTED는 *커밋된 데이터만 조회*할 수 있다. READ COMMITTED는 REPEATABLE READ에서 발생하는
+*Phantom Read에 더해 Non-Repeatable Read(반복 읽기 불가능) 문제까지 발생*한다. 
+예를 들어 사용자 A가 트랜잭션을 시작하여 어떤 데이터를 변경하였고, 아직 커밋은 하지 않은 상태라고 하자.
+그러면 테이블은 먼저 갱신되고, 언두 로그로 변경 전이 데이터가 백업되는데, 이를 그림으로 표현하면 다음과 같다.
+
+![img.png](/assets/images/2309/28-09.png)
+
+이 때 사용자 B가 데이터를 조회하려고 하면, READ COMMITTED에서는 커밋된 데이터만 조회할 수 있으므로, 
+REPEATABLE READ와 마찬가지로 언두 로그에서 변경 전의 데이터를 찾아서 반환하게 된다.
+최정적으로 사용자 A가 트랜잭션을 커밋하면 그 때 부터 다른 트랜잭션에서도 새롭게 변경된 값을 참조할 수 있다.
+
+![img_1.png](/assets/images/2309/28-10.png)
+
+하지만 READ COMMITTED는 Non-Repeatable Read(반복 읽기 불가능) 문제가 발생할 수 있다.
+예를 들어 사용자 B가 트랜잭션을 시작하고 name = "Minkyu"인 레코드를 조회했다고 하자.
+해당 조회 조건을 만족하는 레코드는 아직 존재하지 않으므로 아무 것도 반환되지 않았다.
+
+그러다가 사용자 A가 UPDATE 문을 수행하여 해당 조건을 만족하는 레코드가 생겼다고 하자. 
+사용자 A의 작업은 커밋까지 완료된 상태이다. 이 때 사용자 B가 다시 동일한 조건으로 레코드를 조회하면
+어떻게 될까? READ COMMITTED 는 커밋된 데이터는 조회할 수 있도록 허용하므로 결과가 나오게 된다.
+
+![img_2.png](/assets/images/2309/28-11.png)
+
+READ COMMITTED에서 반복 읽기를 수행하면 다른 트랜잭션의 커밋 여부에 따라 조회 결과가 달라 질 수 있다.
+따라서 이러한 데이터 부정합 문제를 Non-Repeatable Read(반복 읽기 불가능)라고 한다.
+Non-Repeatable Read는 일반적인 경우에는 크게 문제가 되지 않지만, 하나의 트랜잭션에서 동일한 데이터를
+여러 번 읽고 변경하는 작업이 금전적인 처리와 연결되면 문제가 생길 수 있다. 
+
+예를 들어 어떤 트랜잭션에서는 오늘 입금된 총 합을 계산하고 있는데, 다른 트랜잭션에서 계속해서 입금 내역을 커밋하는
+ 상황이라고 하자. 그러면 READ COMMITTED에서는 같은 트랜잭션일지라고 조회할 때 마다 입금된 내역이 달라지므로 문제가
+생길 수 있는 것이다 따라서 격리 수준이 어떻게 동작하는지, 그리고 격리 수준에 따라 어떠한 결과가 나오는지 예측할 수 있어야 한다.
+READ COMMITTED 수준에서는 애초에 커밋된 데이터만 읽을 수 있기 때문에 트랜잭션 내에서 실행되는 SELECT와 트랜잭션 밖에서
+실행되는 SELECT의 차이가 별로 없다.
+
+### READ UNCOMMITTED 
+
+READ UNCOMMITTED는 *커밋하지 않은 데이터 조차도 접근할 수 있는 격리 수준*이다.
+READ UNCOMMITTED에서는 다른 트랜잭션의 작업이 커밋 또는 롤백되지 않아도 즉시 보이게 된다.
+예를 들어 사용자 A의 트랜잭션에서 INSERT를 통해 데이터를 추가했다고 하자. 아직 커밋 또는 롤백이
+되지 않은 상태임에도 불구하고 READ UNCOMMITTED는 변경된 데이터에 접근할 수 있다. 이를
+그림으로 표현하면 다음과 같다.
+
+![img_3.png](/assets/images/2309/28-12.png)
+
+이렇듯 어떤 트랜잭션의 작업이 완료되지 않았는데도, 다른 트랜잭션에서 볼 수 있는 부정합 문제를
+Dirty Read(오손 읽기)라고 한다. Dirty Read는 데이터가 조회되었다가 사라지는 현상을 초래하므로
+시스템에 상당한 혼란을 주게 된다. 만약 위의 경우에 사용자 A가 커밋이 아닌 롤백을 수행한다면 어떻게
+될까?
+
+![img_4.png](/assets/images/2309/28-13.png)
+
+사용자 B의 트랜잭션은 id=51인 데이터를 계속 처리하고 있을 텐데, 다시 데이터를 조회하니 결과가 존재하지 않는
+상황이 생긴다. 이러한 Dirty Read 상황은 시스템에 상당한 버그를 초래할 것이다. 그래서 READ UNCOMMITTED는 
+RDBMS 표준에서 인정하지 않을 정도로 정합성에 문제가 많은 격리 수준이다. 따라서 MySQL에서 사용한다면 최소한
+READ COMMITTED 이상의 격리수준을 사용해야 한다.
+
+
+### 트랜잭션 격리 수준(Transaction Isolation Level) 요역
+
+앞서 살펴본 내용을 정리하면 다음과 같다. READ UNCOMMITTED는 부정합 문제가 지나치게 발생하고
+SERIALIZABLE은 동시성이 상당히 떨어지므로 READ COMMITTED 또는 REPEATABLE READ를 
+사용하면 된다. 참고로 오라클에서는 READ COMMITTED 기본으로 사용하며 MySQL에서는 REPEATABLE READ
+를 기본으로 사용한다.
+
+
+|                  | Dirty Read | Non-Repeatable | Phantom Read     |
+|------------------|--------|----------------|------------------|
+| READ UNCOMMITTED | 발생     | 발생             | 발생               |
+| READ COMMITTED   | 없음     | 발생             | 발생               | 
+| REPEATABLE READ  | 없음     | 없음             | 발생(MySQL 거의 없음)  | 
+| SERIALIZABLE     | 없음     | 없음             | 없음               | 
+
+격리 수준이 높아질수록 MySQL 서버의 처리 성능이 많이 떨어질 것으로 생각하는데, 사실 SERIALIZABLE이 
+아니라면 크게 성능 개선 및 저하는 발생하지 않는다. 그 이유는 결국 언두 로그를 통해 레코드를 참조하는 과정이
+거의 동일하기 때문이다. 따라서 MySQL은 갭 락을 통해 Phantom Read까지 거의 발생하지 않고, READ COMMITTED보다는
+동시 처리 성능은 뛰어난 REPEATABLE READ 를 사용한다.
+
 
 
 ### 참조
